@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import MoviesList from "./components/MoviesList";
 import "./App.css";
@@ -7,6 +7,12 @@ function App() {
 	const [movies, setMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
+
+  // I want to load all the movies when the web page first loads
+  // we set the dependencies to empty [], so it will only run once
+  useEffect(() => {
+    fetchStarWarsMoviesHandler();
+  }, []);
 
 	const fetchStarWarsMoviesHandler = () => {
 		setIsLoading(true);
