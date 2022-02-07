@@ -1,6 +1,8 @@
 # Overview
 
-This is a simple project for using React to practice connecting to API, sending HTTP requests, and handling the errors. I am taking a Udemy course from Max and I used his starting project to code along, so I can learn all these skills. 
+This is a simple project for using React to practice connecting to API, sending HTTP requests, and handling the errors. I am taking a Udemy course from Max and I used his starting project to code along, so I can learn all these skills.
+
+I used the Star Wars API to practice. 
 <!-- 
 [Software Demo Video](https://youtu.be/yijynkr9l0E) -->
 
@@ -14,10 +16,10 @@ This is a simple project for using React to practice connecting to API, sending 
 * HTML
 * CSS
 
-<!-- # Useful Websites
+# Useful Websites
 
-* [Cloud Firestore Documentation | Firebase](https://firebase.google.com/docs/firestore)
-* [Cloud Firestore Structure Introduction](https://www.youtube.com/watch?v=v_hR4K4auoQ&t=25s)
+* [The Star Wars API](https://swapi.dev/)
+<!-- * [Cloud Firestore Structure Introduction](https://www.youtube.com/watch?v=v_hR4K4auoQ&t=25s)
 * [Cloud Firestore Tutorials](https://www.youtube.com/watch?v=4d-gIPGzmK4&list=PL4cUxeGkcC9itfjle0ji1xOZ2cjRGY_WB)
 * [NBA Players Information](https://www.nba.com/players) -->
 
