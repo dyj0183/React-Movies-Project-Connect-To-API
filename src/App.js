@@ -5,13 +5,22 @@ import "./App.css";
 
 function App() {
 	const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState(null);
 
 	const fetchStarWarsMoviesHandler = () => {
-    setIsLoading(true);
+		setIsLoading(true);
+		setError(null);
 		// send a default GET request to get all the Star Wars Movies, fetch returns a promise
 		fetch("https://swapi.dev/api/films")
 			.then((response) => {
+				// handle the error
+				if (!response.ok) {
+					throw new Error(
+						"Something went wrong. Please contact test@gmail.com"
+					);
+				}
+
 				// transform json data to js object, this also returns a promise, so we need to return it and use another "then()"
 				return response.json();
 			})
@@ -27,7 +36,11 @@ function App() {
 				});
 
 				setMovies(transformedMovies);
-        setIsLoading(false);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				setIsLoading(false);
+				setError(error.message);
 			});
 	};
 
@@ -38,8 +51,9 @@ function App() {
 			</section>
 			<section>
 				{!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
-        {!isLoading && movies.length === 0 && <p>No movies found.</p>}
-        {isLoading && <p>Loading...</p>}
+				{!isLoading && movies.length === 0 && !error && <p>No movies found.</p>}
+				{!isLoading && error && <p>{error}</p>}
+				{isLoading && <p>Loading...</p>}
 			</section>
 		</React.Fragment>
 	);
