@@ -5,8 +5,10 @@ import "./App.css";
 
 function App() {
 	const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
 	const fetchStarWarsMoviesHandler = () => {
+    setIsLoading(true);
 		// send a default GET request to get all the Star Wars Movies, fetch returns a promise
 		fetch("https://swapi.dev/api/films")
 			.then((response) => {
@@ -25,6 +27,7 @@ function App() {
 				});
 
 				setMovies(transformedMovies);
+        setIsLoading(false);
 			});
 	};
 
@@ -34,7 +37,9 @@ function App() {
 				<button onClick={fetchStarWarsMoviesHandler}>Fetch Movies</button>
 			</section>
 			<section>
-				<MoviesList movies={movies} />
+				{!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
+        {!isLoading && movies.length === 0 && <p>No movies found.</p>}
+        {isLoading && <p>Loading...</p>}
 			</section>
 		</React.Fragment>
 	);
