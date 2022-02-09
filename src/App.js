@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 
 import MoviesList from "./components/MoviesList";
 import "./App.css";
+import AddMovie from "./components/AddMovie";
 
 function App() {
 	const [movies, setMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-  // I want to load all the movies when the web page first loads
-  // we set the dependencies to empty [], so it will only run once
-  useEffect(() => {
-    fetchStarWarsMoviesHandler();
-  }, []);
+	// I want to load all the movies when the web page first loads
+	// we set the dependencies to empty [], so it will only run once
+	useEffect(() => {
+		fetchStarWarsMoviesHandler();
+	}, []);
 
 	const fetchStarWarsMoviesHandler = () => {
 		setIsLoading(true);
@@ -50,8 +51,15 @@ function App() {
 			});
 	};
 
+	const addMovieHandler = (movie) => {
+		console.log(movie);
+	}
+
 	return (
 		<React.Fragment>
+			<section>
+				<AddMovie onAddMovie={addMovieHandler} />
+			</section>
 			<section>
 				<button onClick={fetchStarWarsMoviesHandler}>Fetch Movies</button>
 			</section>
