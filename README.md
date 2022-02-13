@@ -2,7 +2,7 @@
 
 This is a simple project for using React to practice connecting to API, sending HTTP requests, and handling the errors. I am taking a Udemy course from Max and I used his starting project to code along, so I can learn all these skills.
 
-I used the Star Wars API to practice. 
+I sent GET request to the Star Wars API and both GET and POST requests to my Google Firebase project.  
 <!-- 
 [Software Demo Video](https://youtu.be/yijynkr9l0E) -->
 
@@ -15,6 +15,7 @@ I used the Star Wars API to practice.
 * JavaScript
 * HTML
 * CSS
+* Google Firebase
 
 # Useful Websites
 
